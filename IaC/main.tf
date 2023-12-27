@@ -5,7 +5,7 @@ resource "aws_ecr_repository" "project01" {
   }
 }
 resource "aws_ecs_cluster" "project01" {
-  name = ""${var.project}-ecs"
+  name = "${var.project}-ecs"
 
   setting {
     name  = "containerInsights"
