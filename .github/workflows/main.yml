@@ -22,5 +22,5 @@ jobs:
 
     - name: Build and Push Docker Image
       run: |
-        docker build -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.MY_AWS_REGION }}.amazonaws.com/project01:latest .
-        docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.MY_AWS_REGION }}.amazonaws.com/project01:latest
+        docker build -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.MY_AWS_REGION }}.amazonaws.com/project01-ecr:latest .
+        docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.MY_AWS_REGION }}.amazonaws.com/project01-ecr:latest
