@@ -1,14 +1,9 @@
-# AWS ECR Repository
-
 resource "aws_ecr_repository" "project01" {
   name    = "${var.project}-ecr"
   image_scanning_configuration {
     scan_on_push = true
   }
 }
-
-# AWS ECS Cluster
-
 resource "aws_ecs_cluster" "project01" {
   name = ""${var.project}-ecs"
 
@@ -17,9 +12,6 @@ resource "aws_ecs_cluster" "project01" {
     value = "enabled"
   }
 }
-
-# AWS ECS Task Definition
-
 resource "aws_ecs_task_definition" "project01_task" {
   family                   = "project-task"
   network_mode             = "awsvpc"
@@ -27,8 +19,6 @@ resource "aws_ecs_task_definition" "project01_task" {
   cpu                      = "256"  
   memory                   = "512" 
   execution_role_arn       = aws_iam_role.ecs_execution_role.arn
-
-  # ECS Container Definition
   container_definitions = jsonencode([
     {
       name  = "project-container"
@@ -42,9 +32,6 @@ resource "aws_ecs_task_definition" "project01_task" {
     }
   ])
 }
-
-# AWS ECS Service
-
 resource "aws_ecs_service" "project01_service" {
   name            = "${var.project}-service"
   cluster         = aws_ecs_cluster.project01.id
@@ -60,9 +47,6 @@ resource "aws_ecs_service" "project01_service" {
 
   depends_on = [aws_ecs_task_definition.project01_task]
 }
-
-# AWS Security Group
-
 resource "aws_security_group" "my_security_group" {
   name        = "${var.project}-sg"
   description = "My Security Group Description"
@@ -84,7 +68,6 @@ resource "aws_security_group" "my_security_group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-# AWS IAM Role for ECS Execution
 resource "aws_iam_role" "ecs_execution_role" {
   name = "${var.project}-ecs_execution_role"
 
@@ -128,8 +111,6 @@ resource "aws_iam_role" "ecs_execution_role" {
     })
   }
 }
-
-# AWS IAM Role Policy Attachment
 resource "aws_iam_role_policy_attachment" "ecs_execution_role_attachment" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"  # AmazonECSTaskExecutionRolePolicy grants permissions to pull images from ECR
   role       = aws_iam_role.ecs_execution_role.name

@@ -1,5 +1,3 @@
-# AWS CloudWatch Event Rule for ECR Image Push
-
 resource "aws_cloudwatch_event_rule" "ecr_image_push" {
   name        = "${var.project}-ecr-image-push"
   description = "Triggers ECS service update on ECR image push"
@@ -23,8 +21,6 @@ resource "aws_cloudwatch_event_rule" "ecr_image_push" {
 }
 PATTERN
 }
-
-# AWS CloudWatch Event Target for ECS Service Update
 
 resource "aws_cloudwatch_event_target" "ecs_service_update" {
   rule      = aws_cloudwatch_event_rule.ecr_image_push.name
