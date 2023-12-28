@@ -21,7 +21,7 @@ Once the image is received in the Elastic Container Registry,a CloudWatch Event 
 
 ## Architecture
 
-![ecs](https://github.com/ajish-antony/github-actions-ecr-ecs-deployment/assets/48723128/fbfa55f4-5df6-4f42-b521-37cc1c9c7a6a)
+![35](https://github.com/ajish-antony/github-actions-ecr-ecs-deployment/assets/48723128/6dd31135-8241-4e08-ade1-c78e20b2753b)
 
 ## Resources created via Terraform as IaC
 
