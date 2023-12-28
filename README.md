@@ -1,6 +1,8 @@
 # ECR-ECS Deployment 
 ## GitHub Actions as CI/CD for the ECR-ECS Deployment via Terraform as IaC
 
+[![Docker Build and Push](https://github.com/ajish-antony/github-actions-ecr-ecs-deployment/actions/workflows/main.yml/badge.svg)](https://github.com/ajish-antony/github-actions-ecr-ecs-deployment/actions/workflows/main.yml)
+
 ## Description
 
 This project is initiated with a basic structure that automates the deployment procedures, including ECR,ECS and GitHub Actions as CI/CD. All AWS resources are created via Infrastructure as Code (IaC) using Terraform
