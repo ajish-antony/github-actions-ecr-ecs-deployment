@@ -1,6 +1,6 @@
 # Pull the minimal Ubuntu image
 FROM ubuntu
-
+LABEL maintainer="Ajish"
 # Install Nginx 
 RUN apt-get -y update && apt-get -y install nginx
 
